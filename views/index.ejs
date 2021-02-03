@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>samanar</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -17,6 +17,10 @@
   </head>
   <body>
     <div class="container" id="app">
+      <% if (error) { %>
+      <h2 class="text-center text-danger mb-5 mt-5">requested url not found</h2>
+      <% } %>
+
       <div class="row justify-content-center align-items-center mt-5">
         <div class="col-12 col-md-8">
           <div class="card shadow p-4">

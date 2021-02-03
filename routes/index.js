@@ -4,7 +4,7 @@ var router = express.Router();
 const urlModel = require("../schemas/urlSchema");
 
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("index", { error: false });
 });
 
 router.get("/:code", async function (req, res) {
@@ -13,7 +13,7 @@ router.get("/:code", async function (req, res) {
   const found = await urlModel.findOne({ code }).lean().exec();
   console.log(found);
   if (found) return res.redirect(found.url);
-  else return res.render("index", { title: "Express", error: false });
+  else return res.render("index", { error: true });
 });
 
 router.post("/create", async function (req, res, next) {
